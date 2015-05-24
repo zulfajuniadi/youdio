@@ -1,0 +1,5 @@
+#!/bin/bash
+
+node services.js > /dev/null &
+pid=$!
+echo $pid > ~/.youdio.pid
