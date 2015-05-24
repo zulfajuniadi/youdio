@@ -11,6 +11,7 @@ Scrapes YouTube channels, rips the audio, then saves into S3. Backend for the [q
 - Amazon S3 Account
 - Google API with youtube access
 - git
+- mp3info
 
 ###Setup
 

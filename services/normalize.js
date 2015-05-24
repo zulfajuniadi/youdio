@@ -4,9 +4,9 @@ var db = require(path.join(__dirname, '../lib/db'));
 var fs = require('fs');
 var Queue = require('bull');
 var child = require('child_process');
+var mp3Length = require('mp3-length');
 var normalizeQueue = Queue('normalize queue',process.env.REDIS_PORT, process.env.REDIS_HOST);
 var uploadQueue = Queue('upload queue',process.env.REDIS_PORT, process.env.REDIS_HOST);
-
 
 module.exports = function() {
 
@@ -47,13 +47,19 @@ module.exports = function() {
       child.execFile('/usr/local/bin/ffmpeg', [
         '-i', srcFile, '-af', 'volume=' + volume + 'dB', '-acodec', 'libmp3lame', '-ab', '128k', dstFile
       ], function(){
-        console.log('normalize:done: ' + job.data.id + '.m4a');
-        job.data.normalized = 100;
-        db.write(job.data.filePath, job.data);
-        fs.unlinkSync(srcFile);
-        job.progress(100);
-        uploadQueue.add(job.data);
-        done();
+        mp3Length(dstFile, function(err, secs){
+          fs.stat(dstFile, function(err, stat) {
+            console.log('normalize:done: ' + job.data.id + '.m4a');
+            job.data.duration = secs;
+            job.data.normalized = 100;
+            job.data.size = stat.size;
+            db.write(job.data.filePath, job.data);
+            fs.unlinkSync(srcFile);
+            job.progress(100);
+            uploadQueue.add(job.data);
+            done();
+          });
+        })
       })
     });
   });
