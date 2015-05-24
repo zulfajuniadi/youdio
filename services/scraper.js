@@ -88,6 +88,7 @@ async.each(process.env.CHANNELS.split(','), function(channelId, done) {
                 downloaded: 0,
                 normalized: 0,
                 uploaded: 0,
+                plays: 0,
                 rating: 0,
                 ratings: [],
                 favories: [],
