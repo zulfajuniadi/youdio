@@ -92,7 +92,9 @@ async.each(process.env.CHANNELS.split(','), function(channelId, done) {
                 rating: 0,
                 ratings: [],
                 favories: [],
-                laters: []
+                laters: [],
+                updatedAt: (new Date).toISOString(),
+                deletedAt: null,
               });
               downloadQueue.add(video);
               saved = saved+1;
