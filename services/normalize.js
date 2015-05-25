@@ -36,8 +36,6 @@ module.exports = function() {
         volume = parseInt('-' + volume, 10);
       };
 
-      volume = -5 - volume; // set mean volume to 5db
-
       if(fs.existsSync(dstFile))
         fs.unlinkSync(dstFile);
 
