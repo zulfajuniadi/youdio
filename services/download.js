@@ -20,7 +20,7 @@ module.exports = function() {
 
       console.log('download:start: ' + job.data.id);
       var video = ytdl('http://www.youtube.com/watch?v=' + job.data.id, 
-        ['--extract-audio', '--audio-format=mp3', '--write-thumbnail', '--retries=3']);
+        ['--extract-audio', '--audio-format=m4a', '--write-thumbnail', '--retries=3', '--output='+ job.data.id + '.m4a']);
 
       var dir = path.join(__dirname, '../tmp', job.data.id);
 
