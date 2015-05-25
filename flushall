@@ -1,0 +1,3 @@
+#/bin/bash
+
+redis-cli flushdb && rm -rf tmp/* && rm -rf .db/* && node services/scraper.js && curl -XDELETE http://localhost:9200/youdio
