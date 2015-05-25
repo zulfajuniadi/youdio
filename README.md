@@ -7,7 +7,7 @@ Scrapes YouTube channels, rips the audio, then saves into S3. Backend for the [q
 - nodejs (obviously)
 - [youtube-dl](http://rg3.github.io/youtube-dl/)
 - ffmpeg
-- elastisearch
+- elasticsearch
 - Amazon S3 Account
 - Google API with youtube access
 - git
