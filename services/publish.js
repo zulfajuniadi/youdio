@@ -19,6 +19,8 @@ module.exports = function() {
 
     console.log('publish:process: ' + job.data.id);
 
+    job.data.updatedAt = (new Date).toISOString();
+
     client.create({
       index: 'youdio',
       type: 'videos',
