@@ -89,11 +89,10 @@ async.each(process.env.CHANNELS.split(','), function(channelId, done) {
                 normalized: 0,
                 uploaded: 0,
                 plays: 0,
+                abandoned: 0,
                 rating: 0,
                 ratings: [],
                 favories: [],
-                laters: [],
-                updatedAt: (new Date).toISOString(),
                 deletedAt: null,
               });
               downloadQueue.add(video);
