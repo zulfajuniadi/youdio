@@ -6,12 +6,13 @@ Scrapes YouTube channels, rips the audio, then saves into S3. Backend for the [q
 
 - nodejs (obviously)
 - [youtube-dl](http://rg3.github.io/youtube-dl/)
-- ffmpeg
-- elasticsearch
+- [ffmpeg](http://www.noobslab.com/2014/12/ffmpeg-returns-to-ubuntu-1410.html)
+- [elasticsearch](https://gist.github.com/ricardo-rossi/8265589463915837429d)
 - Amazon S3 Account
 - Google API with youtube access
 - git
 - mp3info
+- [redis](http://www.sysads.co.uk/2014/05/install-redis-2-8-9-ubuntu-14-04-13-10/)
 
 ###Setup
 
