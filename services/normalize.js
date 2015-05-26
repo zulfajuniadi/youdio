@@ -35,6 +35,7 @@ module.exports = function() {
       } else {
         volume = parseInt('-' + volume, 10);
       };
+      volume = volume - 2; // 2dB below 0dB
 
       if(fs.existsSync(dstFile))
         fs.unlinkSync(dstFile);
